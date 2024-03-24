@@ -1,8 +1,7 @@
 import * as LOGIN_TYPE from '../actionType/LoginType.js'
 import * as INFO_TYPE from '../actionType/UserInfoType.js'
 import { login, getUserInfo } from '../../connect/api.js'
-import stateConfig from '../../connect/stateConfig.js'
-import { compileScript } from 'vue/compiler-sfc'
+import stateConfig from '../../connect/StateConfig.js'
 
 const state = {
     userName: "poptic",

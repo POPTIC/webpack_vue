@@ -16,16 +16,12 @@
 
         <div class="player_controls">
             <button class="player_button" title="Play-Pause" ref="play_button" @click="swithState">►</button>
-            <!-- 播放按钮 -->
             <input type="range" name="volume" class="player_slider" min="0" max="1" step="0.05" value="1"
                 ref="sound_button" @click="rangeUpDate">
-            <!-- 音量按钮 -->
             <input type="range" name="playbackRate" class="player_slider" min="0.5" max="2" step="0.1" value="1"
                 ref="rate_button" @click="rangeUpDate">
-            <!-- 播放速率按钮 -->
             <button data-skip="-10" class="player_button" ref="forward_button" @click="skip">« 10s</button>
             <button data-skip="15" class="player_button" ref="backword_button" @click="skip">15s »</button>
-            <!-- 通过css data-来存储数据 -->
         </div>
 
     </div>
@@ -158,86 +154,6 @@ mediaSource.addEventListener('sourceopen', async function () {
 
     playNextChunk();
 });
-
-
-// function getVideoInfo(){
-//     axios.get()
-// }
-
-
-// 这种是一次全部加载策略
-
-// mediaSource.addEventListener('sourceopen', function () {
-//     const sourceBuffer = mediaSource.addSourceBuffer('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');
-//     function send() {
-//         if (index >= chunkNum) {
-//             sourceBuffer.addEventListener('updateend', function () {
-//                 mediaSource.endOfStream()
-//             })
-//         }
-//         else {
-//             const start = index * chunkSize
-//             const end = Math.min(start + chunkSize - 1, totalSize - 1);
-//             const headers = {
-//                 Range: `bytes=${start}-${end}`,
-//             };
-//             axios.get(get_url, { headers, responseType: 'arraybuffer' }).then(
-//                 (res) => {
-//                     index++;
-//                     console.log('index', index, 'chunk', chunkNum);
-//                     chunk = res.data;
-//                     sourceBuffer.appendBuffer(chunk);
-//                     const buffered = sourceBuffer.buffered;
-//                     const bufferedLength = buffered.length;
-//                     console.log('bufferedLength',bufferedLength);
-//                     send();
-//                 },
-//                 (err) => {
-//                     console.log(err, "分片传输失败");
-
-//                 }
-//             )
-//         }
-//     }
-//     send();
-// })
-
-
-// 这种方式会导致问题
-
-// function getSegment() {
-//     if (index >= numChunks) {
-//         console.log("视频已播放完毕")
-//         return;
-//     }
-//     console.log(index);
-//     const start = index * chunkSize;
-//     const end = Math.min(start + chunkSize - 1, totalSize - 1);
-//     const headers = {
-//         Range: `bytes=${start}-${end}`,
-//     };
-//     axios.get(get_url, { headers, responseType: 'blob' }).then(
-//         (res) => {
-//             index++;
-//             chunk = new Blob([chunk, res.data], { type: res.headers['content-type'] })
-//             // video.value.currentTime = videoCurrent;
-//             let url = URL.createObjectURL(chunk);
-//             console.log(url);
-//             video_src.value.
-//             console.log("分片传输成功");
-//             const currentTime = video.value.currentTime;
-//             video.value.currentTime = currentTime;
-//             video.value.pause();
-//             video_src.value = url;
-//             // video.value.play();
-
-
-//         },
-//         (err) => {
-//             console.log(err, "分片传输失败");
-//         }
-//     )
-// }
 
 </script>
 <style scoped>

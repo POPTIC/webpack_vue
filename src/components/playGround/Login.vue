@@ -45,7 +45,7 @@
 import { computed, onMounted, ref, watch } from 'vue'
 import CustomizedInput from '../playGround/CustomizedInput.vue';
 import { useStore } from 'vuex';
-import stateConfig from '../../connect/stateConfig';
+import stateConfig from '../../connect/StateConfig';
 
 const emit = defineEmits(['closeLogin']);
 const store = useStore();
@@ -299,4 +299,4 @@ button.login_button:hover {
 /* h2:after:hover{
    box-shadow: 1px 1px 2px red;
 } */
-</style>./playGround/CustomizedInput.vue
+</style>./playGround/CustomizedInput.vue../../connect/StateConfig../../connect/StateConfig../../connect/StateConfig

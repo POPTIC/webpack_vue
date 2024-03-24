@@ -1,7 +1,7 @@
 // TODO: 需要修改
 import * as TYPE from '../actionType/RegisterType.js'
 import { isNameExist,register } from '../../connect/api.js'
-import stateConfig from '../../connect/stateConfig.js'
+import stateConfig from '../../connect/StateConfig.js'
 
 const state = {
     requesting : stateConfig.NOT_REQUEST,

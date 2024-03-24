@@ -13,13 +13,14 @@
             author : <a :href="author_link" target="_blank"><span>{{ author }}</span></a>
         </div>
         <div class="volume_editor">
-            <img src="/public/icons/volume.svg">
+            <img src="/icons/volume.svg">
             <input type="range" v-model="volume" min="0" max="1" step="0.02">
         </div>
         <div class="record_shift">
-            <img src="/public/icons/pre_record.svg">
-            <img src="/public/icons/bofang.svg">
-            <img src="/public/icons/next_record.svg">
+            <img src="/icons/pre_record.svg">
+            <img src="/icons/bofang.svg">
+            <img src="/icons/next_record.svg">
+            <!-- img src中的url可以被正确加载 -->
         </div>
     </div>
  </div>

@@ -28,6 +28,14 @@ module.exports = { // 暴露一个Object对象
                 __dirname,
                 '/public/picture/*'
             ),
+            '/public/icons/*': path.resolve(
+                __dirname,
+                '/public/icons/*'
+            ),
+            '/public/sound/*': path.resolve(
+                __dirname,
+                '/public/sound/*'
+            )
         },
     },
     plugins: [

@@ -1,8 +1,7 @@
 import * as TYPE from '../actionType/GalleyType.js'
 import { getUserImgURL } from '../../connect/api.js'
-import stateConfig from '../../connect/stateConfig.js'
+import stateConfig from '../../connect/StateConfig.js'
 import {serverUrlRoot} from '../../connect/URLconfig.js'
-import { computed, getCurrentInstance } from 'vue'
 
 const state = {
     galleyUrl : [null, null, null, null],

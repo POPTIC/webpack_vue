@@ -1,15 +1,13 @@
 <template>
-    <!-- 需要一个路由效果 -->
     <div class="login_wraper" v-show="loginOpen">
         <Login class="login_comp" @closeLogin="closeLoginBox"></Login>
     </div>
     <div class="header_container">
-        <!-- 子组件可以继承父组件的class -->
         <div class="navigater">
             <li>
                 <RouterLink to="/playground" class='router_link'><span>首页</span></RouterLink>
             </li>
-            <li> <span>热门</span> </li>
+            <li><router-link to="/hot" class='router_link'><span>热门</span></router-link> </li>
         </div>
         <div class="input_decorator">
             <input class="input_box" placeholder="请输入内容" @focus="change" @blur="change">
@@ -56,10 +54,10 @@ import Login from '../components/playGround/Login.vue';
 
 // showLogin
 const loginOpen = ref(false);
-function openLoginBox(){
-  loginOpen.value = true;
+function openLoginBox() {
+    loginOpen.value = true;
 }
-function closeLoginBox(){
+function closeLoginBox() {
     console.log('login box close');
     loginOpen.value = false;
 }
@@ -81,7 +79,7 @@ const showLogin = ref(false);
     --item_space: 10px;
 } */
 
-.router_link{
+.router_link {
     text-decoration: none;
     color: white;
 }
@@ -255,14 +253,15 @@ const showLogin = ref(false);
     padding-left: 30px;
     padding-right: 0px;
 } */
-.user_item  > div {
+.user_item>div {
     flex: 1;
     padding: 10px;
     font-size: large;
     font-weight: 600;
     color: white;
 }
-.login > span{
+
+.login>span {
     cursor: pointer;
 }
 </style>

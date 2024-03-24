@@ -16,7 +16,8 @@
 </template>
 
 <script setup lang='js'>
-import {ref, reactive} from 'vue'
+import { RouterLink, RouterView } from 'vue-router';
+
 
 </script>
 <style scoped>

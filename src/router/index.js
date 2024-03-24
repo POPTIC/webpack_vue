@@ -9,6 +9,11 @@ const router = createRouter({
       component: () => import('../views/PlayGround.vue'),
     },
     {
+      path: '/hot',
+      name: 'hot',
+      component: () => import('../views/Hot.vue'),
+    },
+    {
       path: '/userhome',
       name: 'userhome',
       component: () => import('../views/UserHome.vue'),

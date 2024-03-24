@@ -1,4 +1,3 @@
-import { renderSlot } from "vue";
 import * as url from "./URLconfig.js"
 import axios from "./axiosInstace.js"
 import toQuery from "../utils/toQuery.js";

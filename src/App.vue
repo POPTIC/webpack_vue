@@ -1,6 +1,5 @@
 <script setup>
-import Header from './views/Header.vue'
-import ChatRoom from './views/ChatRoom.vue';
+import Header from './views/Header.vue';
 </script>
 
 <template>

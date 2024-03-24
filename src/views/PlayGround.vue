@@ -27,12 +27,12 @@
 
 <script setup lang='js'>
 
-import ClassSelector from '../components/playGround/ClassSelector.vue';
-import BannerSimple from '../components/playGround/BannerSimple.vue';
-import ViedoContent from '../components/playGround/ViedoContent.vue';
-import SplitBand from '../components/playGround/SplitBand.vue';
-import SidePrompt from '../components/playGround/SidePrompt.vue';
-import ArticleContent from '../components/playGround/ArticleContent.vue';
+import ClassSelector from '../components/PlayGround/ClassSelector.vue';
+import BannerSimple from '../components/PlayGround/BannerSimple.vue';
+import ViedoContent from '../components/PlayGround/ViedoContent.vue';
+import SplitBand from '../components/PlayGround/SplitBand.vue';
+import SidePrompt from '../components/PlayGround/SidePrompt.vue';
+import ArticleContent from '../components/PlayGround/ArticleContent.vue';
 
 </script>
 <style scoped>
