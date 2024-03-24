@@ -1,0 +1,23 @@
+#app {
+  margin: 0;
+  /*
+    margin: 0 auto;
+    padding: 2rem; 
+    这个属性控制着最外部全局的盒子模型情况
+  */
+  max-width: 1280px;
+  text-align: center;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
