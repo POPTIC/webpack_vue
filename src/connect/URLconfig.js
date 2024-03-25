@@ -1,5 +1,4 @@
 export const serverUrlRoot = 'http://127.0.0.1:3000';
-export const chatUrlRoot = 'http://127.0.0.1:3010';
 
 export const GET_JudgeName = serverUrlRoot + '/register/isNameExist';
 export const POST_Resiget = serverUrlRoot + '/register';
@@ -15,9 +14,9 @@ export const GET_UserVideo = serverUrlRoot + '/user/video';
 export const GET_MainPageArticleURL = serverUrlRoot + '/mainPage/article';
 
 // chatroom接口
-export const GET_FriendList = chatUrlRoot + '/user/getFriendList';
-export const GET_Message = chatUrlRoot + '/user/getMessage';
-export const wsURL = chatUrlRoot;
-// export const POST_SendMessage = chatUrlRoot + '/user/sendMessage';
+export const GET_FriendList = serverUrlRoot + '/user/getFriendList';
+export const GET_Message = serverUrlRoot + '/user/getMessage';
+export const wsURL = serverUrlRoot;
 
-// TODO: 添加一个传查询字符串的接口
+// setting接口
+export const POST_UpdateUserInfo = serverUrlRoot + '/user/updateInfo';

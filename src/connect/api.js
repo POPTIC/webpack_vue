@@ -114,14 +114,21 @@ export const getMessage = function (userName) {
             return err;
         }
     )
-}
+};
 
-// send message不使用http协议来发送信息，使用websocket来发送信息
-// export const SendMessage(from, to, message){
-//     const data = {
-//         from,
-//         to,
-//         message,
-//     };
-//     return axios.post();
-// }
+export const updateUserInfo = function (data) {
+    return axios.post(url.POST_UpdateUserInfo, data, {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(
+        (res) => {
+            console.log(res);
+            return res.data;
+        },
+        (err) => {
+            console.log(err);
+            return err;
+        }
+    )
+}

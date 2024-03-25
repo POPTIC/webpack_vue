@@ -1,13 +1,13 @@
 import * as LOGIN_TYPE from '../actionType/LoginType.js'
 import * as INFO_TYPE from '../actionType/UserInfoType.js'
-import { login, getUserInfo } from '../../connect/api.js'
+import { login, getUserInfo,updateUserInfo } from '../../connect/api.js'
 import stateConfig from '../../connect/StateConfig.js'
 
 const state = {
     userName: "poptic",
     email: "None",
     school: "None",
-    birthday: "None",
+    birthday: "2024-03-25",
 }
 
 const getter = {
@@ -45,13 +45,12 @@ const mutations = {
     },
 }
 
-const actions = { // 状态异步刷新钩子
-    Login({ commit, state, rootState }, payload) {
+const actions = {
+    Login({ commit, rootState }, payload) {
         commit(LOGIN_TYPE.LOGIN_REQUEST, payload.userName);
         login(payload.userName, payload.password).then(
             (res) => {
                 console.log(res);
-                // 在这里出现了问题，在原来的设计中(return data.data)返回的是{token , id}所以会进入else分支，导致报出错误
                 if (res.code === stateConfig.SUCCESS) {
                     commit(LOGIN_TYPE.LOGIN_SUCESS);
                     console.log(res);
@@ -84,6 +83,26 @@ const actions = { // 状态异步刷新钩子
                 commit(INFO_TYPE.GET_USER_INFO_FAILURE);
             }
         )
+    },
+    UpdateUserInfo({commit}, payload){
+        commit(INFO_TYPE.UPDATE_USER_INFO_REQUEST);
+        updateUserInfo(payload).then(
+            (data)=>{
+                if(data.code === SUCCESS){
+                    commit(INFO_TYPE.UPDATE_USER_INFO_SUCESS);
+                    console.log("发送成功");
+                }
+                else{
+                    commit(INFO_TYPE.UPDATE_USER_INFO_FAILURE);
+                    console.log(data.message);
+                }
+            },
+            (err)=>{
+                commit(INFO_TYPE.UPDATE_USER_INFO_FAILURE);
+                console.log(err);
+            }
+        )
+        
     }
 }
 

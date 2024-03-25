@@ -38,7 +38,7 @@
 <script setup lang='js'>
 import { ref, computed, onMounted, watch } from 'vue';
 import { useStore } from 'vuex';
-import { chatUrlRoot } from '../connect/URLconfig'
+import { serverUrlRoot } from '../connect/URLconfig'
 import { io } from 'socket.io-client';
 
 const store = useStore();
@@ -55,7 +55,7 @@ const message_list = computed(() => {
     return store.state.ChatroomStore.message;
 })
 
-const chat_url = `${chatUrlRoot}?userName=${store.state.UserStore.userName}`;
+const chat_url = `${serverUrlRoot}?userName=${store.state.UserStore.userName}`;
 const socket = io(chat_url, {
     transports: ['websocket'], // 指定传输方式，如WebSocket
     autoConnect: true, // 是否自动连接

@@ -1,8 +1,8 @@
 import { createStore } from 'vuex'
-import UserStore from './module/userStore.js'
-import GalleyStore from './module/galleyStore.js'
-import RegisterStore from './module/registerStore.js'
-import ChatroomStore from './module/chatroomStore.js'
+import UserStore from './module/UserStore.js'
+import GalleyStore from './module/GalleyStore.js'
+import RegisterStore from './module/RegisterStore.js'
+import ChatroomStore from './module/ChatroomStore.js'
 
 // 引入模块可以不添加文件后缀
 

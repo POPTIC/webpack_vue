@@ -8,8 +8,7 @@
     
     <audio :key="item" v-for="(item, index) in audio_keys" 
         :src="'sound/' + audio_names[index] + '.wav'" 
-        ref="audioref"
-        controls hidden="true"></audio>
+        controls hidden="true" class="audio_el"></audio>
  </div>
 </template>
 
@@ -24,13 +23,13 @@ const board_keys = ['A','S','D','F','G','H','J','K','L'];
 const audio_keys = board_keys.map((key) => (key.charCodeAt(0)));
 const audio_names = ['boom', 'clap', 'hihat', 'kick', 'openhat', 'ride', 'snare', 'tink', 'tom'];
 
-const audioref = ref([]);
-
 onMounted(()=>{
     window.addEventListener('keydown', (e) => {
-        let index = board_keys.indexOf(e.key.toUpperCase());
-        audioref.value[index].currentTime = 0;
-        audioref.value[index].play();
+        const audioPlayer = document.querySelectorAll(".audio_el");
+        for(let ele of audioPlayer){
+            ele.currentTime = 0;
+            ele.play();
+        }
     })
 })
 
