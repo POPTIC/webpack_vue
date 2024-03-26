@@ -59,13 +59,7 @@ const username = ref(store.state.UserStore.userName);
 const school = ref(store.state.UserStore.school);
 const email = ref(store.state.UserStore.email);
 const birthday = ref(store.state.UserStore.birthday);
-// watch(()=>birthday.value, console.log(birthday.value));
-// watch(username, ()=>{
-//     console.log(username.value);
-//     // 注意watch的第二个参数为回调函数 —— console.log的返回值输出值不是一个函数
-// });
 
-// decoration
 let ball = null;
 const cav = ref();
 function play() {

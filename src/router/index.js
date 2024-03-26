@@ -32,9 +32,9 @@ const router = createRouter({
           }
         },
         {
-          path: 'contribute',
+          path: 'workcollection',
           components: {
-            main: () => import('../components/UserHome/ContributePage.vue'),
+            main: () => import('../components/UserHome/WorkCollectionPage.vue'),
           },
           children: [
             {
@@ -52,7 +52,6 @@ const router = createRouter({
           components: {
             main: () => import('../components/UserHome/SettingPage.vue')
           }
-          // TODO: 在一个页面中同时使用多个路由组件需要为components，注意s
         },
         {
           path: 'user_list',
@@ -60,6 +59,22 @@ const router = createRouter({
             main: () => import('../components/UserHome/UserList.vue'),
             right: () => import('../components/UserHome/SideContent.vue')
           }
+        },
+        {
+          path: 'contribute',
+          components: {
+            main: () => import('../components/UserHome/Contribute.vue'),
+          },
+          children: [
+            {
+              path: 'editor',
+              component: () => import('../components/UserHome/Editor.vue'),
+            },
+            {
+              path: 'uploader',
+              component: () => import('../components/UserHome/FileUpload.vue'),
+            }
+          ],
         }
       ]
     },

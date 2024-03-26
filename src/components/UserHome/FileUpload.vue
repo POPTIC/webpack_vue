@@ -8,7 +8,7 @@
             <div class="pannel_right">
                 <div class="cover_wraper">
                     <div v-for="item of file_list"
-                        style="text-align: center;background-color: rgb(84, 54, 254); flex: 1;">
+                        style="text-align: center;background-color: rgb(84, 55, 255); flex: 1;">
                         {{ item }}
                     </div>
                     <div class="cover" @click="upload_video" :style="changeFlex"><span>视频上传</span>
@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang='js'>
-import { ref, computed, watch, hasInjectionContext } from 'vue';
+import { ref, computed } from 'vue';
 import SparkMD5 from 'spark-md5';
 import axios from 'axios';
 

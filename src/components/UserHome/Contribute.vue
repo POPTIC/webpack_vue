@@ -1,29 +1,24 @@
 <template>
+   <div>
       <div class="contribute_page">
          <div class='class_selector'>
-            <router-link to="/userhome/contribute/video">
-               <div style="height: 35px;"></div>
-               <div class="video" :class="{ back_col: select_video }" @click="select_video = true">视频</div>
+            <router-link to="/userhome/contribute/editor">
+               <div class="video" :class="{ back_col: select_video }" @click="select_video = true">文章</div>
             </router-link>
-            <router-link to="/userhome/contribute/article">
-               <div class="article" :class="{ back_col: !select_video }" @click="select_video = false">文章</div>
+            <router-link to="/userhome/contribute/uploader">
+               <div class="article" :class="{ back_col: !select_video }" @click="select_video = false">视频</div>
             </router-link>
          </div>
-         <!-- TODO: 这里的名字需要解耦合 -->
          <div class="contribute_content">
-            <SortBar attach_name="contribute"></SortBar>
             <RouterView></RouterView>
          </div>
-         <!-- <div class="distributed_article">
-         <ArticleList></ArticleList>
-    </div> -->
       </div>
+   </div>
 
 </template>
 
 <script setup lang='js'>
 
-import SortBar from './SortBar.vue';
 import { ref } from 'vue';
 import { RouterLink, RouterView } from 'vue-router';
 

@@ -2,23 +2,38 @@
 
    <div class="container">
       <div class="header">
-         <div class="user_info">
+         <div class="top">
+            <div class="user_info">
                <img class="user_img" :src="user_img_url">
                <div class="other_msg">
                   <p>{{ user_name }}</p>
                   <input placeholder="请输入签名">
                </div>
+            </div>
+            <div class="contribute"><router-link to="/userhome/contribute/editor" class="link"><button @click="get_left = false; get_right = false">投稿</button></router-link></div>
          </div>
          <div class='navigater'>
             <div class='selector'>
-               <router-link to="/userhome/main" class="link" ><div @click="get_left=true;get_right=false">主页</div></router-link>
-               <router-link to="/userhome/show" class="link" @click="get_left=false;get_right=false"><div>展示</div></router-link>
-               <router-link to="/userhome/contribute/video" class="link" @click="get_left=false;get_right=true"><div>投稿</div></router-link>
-               <router-link to="/userhome/setting" class="link" @click="get_left=false;get_right=true"><div>设置</div></router-link>
+               <router-link to="/userhome/main" class="link">
+                  <div @click="get_left = true; get_right = false">主页</div>
+               </router-link>
+               <router-link to="/userhome/show" class="link" @click="get_left = false; get_right = false">
+                  <div>展示</div>
+               </router-link>
+               <router-link to="/userhome/workcollection/video" class="link" @click="get_left = false; get_right = true">
+                  <div>作品</div>
+               </router-link>
+               <router-link to="/userhome/setting" class="link" @click="get_left = false; get_right = true">
+                  <div>设置</div>
+               </router-link>
             </div>
             <div class='user_msg'>
-               <router-link to="/userhome/user_list" class="link" ><div @click="get_left=true;get_right=false">关注</div></router-link>
-               <router-link to="/userhome/user_list" class="link" ><div @click="get_left=true;get_right=false">粉丝</div></router-link>
+               <router-link to="/userhome/user_list" class="link">
+                  <div @click="get_left = true; get_right = false">关注</div>
+               </router-link>
+               <router-link to="/userhome/user_list" class="link">
+                  <div @click="get_left = true; get_right = false">粉丝</div>
+               </router-link>
             </div>
          </div>
       </div>
@@ -38,10 +53,11 @@
 
 <script setup lang='js'>
 import { ref, computed } from 'vue';
+import { RouterLink, RouterView } from 'vue-router';
 
-import { RouterLink,RouterView,useRoute } from 'vue-router';
+// const emit = defineEmits(["routeToEditor"]);
+
 const user_img_url = ref('src/assets/picture/avatar.webp');
-
 const get_left = ref(true);
 const get_right = ref(false);
 
@@ -49,18 +65,21 @@ const user_name = computed(() => {
    return "poptic";
 });
 
+// function route(){
+//    emit("routeToEditor");
+// }
 
 </script>
 <style scoped>
-
-
-.link{
-   text-decoration: none; /* 去除下划线 */
+.link {
+   text-decoration: none;
+   /* 去除下划线 */
    color: rgb(0, 0, 0);
    font-size: large;
 }
+
 /* TODO: 做下划线滑动效果 */
-.link:hover{
+.link:hover {
    color: rgba(90, 46, 191, 0.841);
    cursor: pointer;
 }
@@ -72,9 +91,33 @@ const user_name = computed(() => {
 .header {
    background-color: rgb(94, 162, 251);
 }
-
+.top{
+   display: flex;
+   justify-content: space-between;
+}
 .user_info {
    display: flex;
+   flex: 3;
+}
+.contribute{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex: 1;
+}
+.contribute button{
+   outline: none;
+   border: none;
+   background-color: rgba(73, 45, 255, 0.561);
+   width: 60px;
+   height: 30px;
+   border-radius: 8px;
+   font-size: 15px;
+   font-weight: 500;
+}
+
+.contribute button:hover{
+   background-color: rgba(0, 0, 255, 0.564);
 }
 
 .user_img {
@@ -82,6 +125,7 @@ const user_name = computed(() => {
    height: 80px;
    border-radius: 50%;
 }
+
 .other_msg>p {
    text-align: left;
    padding-left: 15px;
@@ -122,7 +166,7 @@ const user_name = computed(() => {
    font-size: medium;
    font-weight: 600;
    display: flex;
-   justify-content:space-between;
+   justify-content: space-between;
    /* 如果子元素没有设置flex则不会拉伸 */
    align-items: center;
    padding-top: 15px;
@@ -136,28 +180,32 @@ const user_name = computed(() => {
    flex: 5;
 }
 
-.user_msg{
+.user_msg {
    display: flex;
    justify-content: space-evenly;
    flex: 2;
    cursor: pointer;
 }
-.content{
+
+.content {
    width: 100%;
    height: 100%;
    display: flex;
    background-color: rgb(240, 240, 240);
 }
+
 .main_content {
    margin-top: 10px;
    flex: 5;
    height: 100%;
    background-color: white;
 }
-.right_side_content{
+
+.right_side_content {
    flex: 2;
 }
-.article_list{
+
+.article_list {
    margin-bottom: 5px;
 }
 </style>
